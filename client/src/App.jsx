@@ -1,11 +1,13 @@
-import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import React, { useMemo } from 'react';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { useMemo } from 'react';
+import { QueryClientProvider } from 'react-query';
 import { useSelector } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
 
-import { themeSettings } from './theme';
+import queryClinet from 'api';
 import router from 'routers';
+import { themeSettings } from './theme';
 
 function App() {
     const themeMode = useSelector((state) => state.themeMode.mode);
@@ -15,12 +17,14 @@ function App() {
     );
 
     return (
-        <div className="app">
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <RouterProvider router={router} />
-            </ThemeProvider>
-        </div>
+        <QueryClientProvider client={queryClinet}>
+            <div className="app">
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <RouterProvider router={router} />
+                </ThemeProvider>
+            </div>
+        </QueryClientProvider>
     );
 }
 

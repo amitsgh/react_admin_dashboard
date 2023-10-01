@@ -1,19 +1,19 @@
 import axios from 'axios';
-import { useQuery } from 'react-query';
+import { QueryClient } from 'react-query';
 
-// const baseUrl = import.meta.env.VITE_BASE_URL;
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
-const getUser = (id) => {
-    return useQuery({
-        queryKey: ['user'],
-        queryFn: async (id) => {
-            
-        }
-    });
+const defaultQueryFn = async ({ queryKey }) => {
+    const { data } = await axios.get(`${baseUrl}${queryKey[0]}`);
+    return data;
 };
 
-const useApi = () => ({
-    getUser,
+const queryClinet = new QueryClient({
+    defaultOptions: {
+        queries: {
+            queryFn: defaultQueryFn,
+        },
+    },
 });
 
-export default useApi;
+export default queryClinet;

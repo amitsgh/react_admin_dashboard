@@ -1,9 +1,8 @@
-import UserView from 'components/ui/UserProfile';
-
 const Dashboard = () => {
     return (
         <div>
-            <UserView />
+            {/* <UserView /> */}
+            {/* {import.meta.env.VITE_BASE_URL} */}
         </div>
     );
 };

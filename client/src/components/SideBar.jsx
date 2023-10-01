@@ -2,9 +2,11 @@ import {
     ChevronLeft,
     ChevronRight,
     ChevronRightOutlined,
+    SettingsOutlined,
 } from '@mui/icons-material';
 import {
     Box,
+    Divider,
     Drawer,
     IconButton,
     List,
@@ -15,12 +17,14 @@ import {
     Typography,
     useTheme,
 } from '@mui/material';
+import profileImage from 'assets/profile.jpeg';
 import { NavItems } from 'data';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import FlexBtw from './ui/FlexBtw';
+import FlexBtw from './FlexBtw';
 
 const SideBar = ({
+    user,
     isNotMobileView,
     drawerWidth,
     isSideBarOpen,
@@ -50,6 +54,7 @@ const SideBar = ({
                     anchor="left"
                     aria-label="Navigation Sidebar"
                     sx={{
+                        position: 'relative',
                         width: drawerWidth,
                         flexShrink: 0,
                         '& .MuiDrawer-paper': {
@@ -93,7 +98,9 @@ const SideBar = ({
                                     return (
                                         <Typography
                                             key={text}
-                                            sx={{ m: '2.25rem 0 1rem 3rem' }}
+                                            sx={{
+                                                m: '2.25rem 0 1rem 3rem',
+                                            }}
                                             aria-label={text}
                                         >
                                             {text}
@@ -150,6 +157,46 @@ const SideBar = ({
                                 );
                             })}
                         </List>
+                    </Box>
+
+                    <Box sx={{ mb: '2rem' }}>
+                        <Divider />
+                        <FlexBtw
+                            textTransform="none"
+                            gap="1rem"
+                            m="1.5rem 2rem 0 3rem"
+                        >
+                            <Box
+                                component="img"
+                                alt="profile"
+                                src={profileImage}
+                                height="40px"
+                                width="40px"
+                                borderRadius="50%"
+                                sx={{ objectFit: 'cover' }}
+                            />
+                            <Box textAlign="left">
+                                <Typography
+                                    fontWeight="bold"
+                                    fontSize="0.9rem"
+                                    sx={{ color: theme.palette.secondary[100] }}
+                                >
+                                    {user.name}
+                                </Typography>
+                                <Typography
+                                    fontSize="0.8rem"
+                                    sx={{ color: theme.palette.secondary[200] }}
+                                >
+                                    {user.occupation}
+                                </Typography>
+                            </Box>
+                            <SettingsOutlined
+                                sx={{
+                                    color: theme.palette.secondary[300],
+                                    fontSize: '25px ',
+                                }}
+                            />
+                        </FlexBtw>
                     </Box>
                 </Drawer>
             )}

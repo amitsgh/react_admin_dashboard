@@ -18,43 +18,13 @@ import FlexBtw from 'components/FlexBtw';
 import Header from 'components/Header';
 import OverviewChart from 'components/OverviewChart';
 import StatBox from 'components/StatBox';
+import { DashboardColumns as columns } from 'data';
 import { useGetDashboard } from 'hooks';
 
 const Dashboard = () => {
     const theme = useTheme();
     const isNonMediumScreens = useMediaQuery('(min-width: 1200px)');
     const { data, isLoading } = useGetDashboard();
-
-    const columns = [
-        {
-            field: '_id',
-            headerName: 'ID',
-            flex: 1,
-        },
-        {
-            field: 'userId',
-            headerName: 'User ID',
-            flex: 1,
-        },
-        {
-            field: 'createdAt',
-            headerName: 'CreatedAt',
-            flex: 1,
-        },
-        {
-            field: 'products',
-            headerName: '# of Products',
-            flex: 0.5,
-            sortable: false,
-            renderCell: (params) => params.value.length,
-        },
-        {
-            field: 'cost',
-            headerName: 'Cost',
-            flex: 1,
-            renderCell: (params) => `$${Number(params.value).toFixed(2)}`,
-        },
-    ];
 
     return (
         <Box m="1.5rem 2.5rem">

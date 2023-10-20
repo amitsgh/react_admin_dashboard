@@ -1,11 +1,11 @@
 /*
-1. Foundation for handling HTTP requests and Routing with Express
-2. Security measures with Helmet Middleware
-3. Setting Cross Origin Resource Sharing wiht CORS
-4. Setting Morgan for HTTP requests log
-5. Parsing JSON & Url encoded format with body-parser
-6. Setting connection to MongoDB with mongoose
-7. Organizing routes for client, general, management, sales
+1. Initialized an Express server.
+2. Added security measures with Helmet middleware.
+3. Enabled Cross-Origin Resource Sharing (CORS) using the CORS middleware.
+4. Set up HTTP request logging with Morgan.
+5. Configured body parsing for JSON and URL-encoded formats.
+6. Established a connection to MongoDB using Mongoose.
+7. Organized routes for client, general, management, and sales.
 */
 
 import bodyParser from 'body-parser';

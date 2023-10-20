@@ -27,3 +27,12 @@
 -   Creating a Layout with Navbar and Sidebar
 -   Creating User Schema (mongoose)
 -   react query and mock data injection in mongodb
+-   entiy relationship diagram and data modeling
+-   prodcut page
+-   customer page
+-   transaction page with server side pagination
+-   geography page
+-   sales overview with chart
+-   daily line graph, monthly line graph and breakdown pie chart
+-   admin page display admin data
+-   performance display affiliate sales using aggregate calls at backend

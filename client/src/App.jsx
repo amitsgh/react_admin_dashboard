@@ -1,13 +1,13 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useMemo } from 'react';
-import { QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { useSelector } from 'react-redux';
 import { RouterProvider } from 'react-router-dom';
-
-import queryClinet from 'api';
 import router from 'routers';
 import { themeSettings } from './theme';
+
+const queryClinet = new QueryClient();
 
 function App() {
     const themeMode = useSelector((state) => state.themeMode.mode);

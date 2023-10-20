@@ -30,6 +30,15 @@ export const getUserPerformance = async (req, res) => {
             { $unwind: '$affiliateStats' },
         ]);
 
+         if (
+             userWithStats.length === 0 ||
+             !userWithStats[0].hasOwnProperty('affiliateStats')
+         ) {
+             return res
+                 .status(404)
+                 .json({ message: 'User not found or has no affiliate stats' });
+         }
+
         const saleTransactions = await Promise.all(
             userWithStats[0].affiliateStats.affiliateSales.map((id) => {
                 return Transaction.findById(id);
@@ -44,6 +53,8 @@ export const getUserPerformance = async (req, res) => {
             sales: filteredSaleTransactions,
         });
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        // res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ message: error.message });
+
     }
 };

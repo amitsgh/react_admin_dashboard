@@ -12,7 +12,8 @@ const GEOGRAPHY_ENDPOINT = '/client/geography';
 const SALES_ENDPOINT = '/sales/sales';
 const GEODATA_ENDPOINT = '/client/geo-data';
 const ADMIN_ENDPOINT = '/management/admins';
-const PERFORMANCE_ENDPOINT = '/management/performance';
+const PERFORMANCE_ENDPOINT = '/management/performance/';
+const DASHBOARD_ENDPOINT = '/general/dashboard/';
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
@@ -39,6 +40,10 @@ export const useGetUserById = (userId) => {
     return useQuery(['user', userId], () =>
         fetchData(`${USER_ENDPOINT}${userId}`)
     );
+};
+
+export const useGetDashboard = () => {
+    return useQuery(['dashboard'], () => fetchData(DASHBOARD_ENDPOINT));
 };
 
 // client
@@ -79,6 +84,6 @@ export const useGetAdmins = () => {
 
 export const useGetPerformance = (userId) => {
     return useQuery(['performance', userId], async (userId) =>
-        fetchData(`PERFORMANCE_ENDPOINT /${userId}`)
+        fetchData(`${PERFORMANCE_ENDPOINT}${userId}`)
     );
 };

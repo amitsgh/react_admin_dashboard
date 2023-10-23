@@ -79,7 +79,7 @@ const startServer = async () => {
     await connectToMongoDB();
 
     app.listen(PORT, HOST, () => {
-        console.log(`server started at http://${HOST}:${PORT}`);
+        console.log(`server started at http://localhost:${PORT}`);
     });
 };
 

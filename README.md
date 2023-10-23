@@ -12,7 +12,7 @@
     -   tailwindcss (for styling)
     -   nivo (for charts)
     -   redux toolkit (for statemanagement)
-    -   graphql (for apis calls)
+    -   react-query (for apis calls)
 
 -   **backend**
     -   node js (run time)
@@ -21,6 +21,9 @@
 
 ### Steps -
 
+-   Setup Express for HTTP requests and routing
+-   Setup MongoDB for database
+-   Setup Helmet for web security to Express applications
 -   Creating Custom Theme (mui theme)
 -   Setting Global State Management System (react-redux && redux-toolkit)
 -   Setting Browser Route System (react-router-dom)
@@ -36,3 +39,5 @@
 -   daily line graph, monthly line graph and breakdown pie chart
 -   admin page display admin data
 -   performance display affiliate sales using aggregate calls at backend
+-   display dashboard with statbox, linechar, piechart etc
+-   deploy it to render.com

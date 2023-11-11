@@ -22,7 +22,7 @@
     "@nivo/line": "^0.83.0",
     "@nivo/pie": "^0.83.0",
     "@reduxjs/toolkit": "^1.9.6",
-    "axios": "^1.5.1",
+    "axios": "^1.6.0",
     "react": "^18.2.0",
     "react-datepicker": "^4.18.0",
     "react-dom": "^18.2.0",
